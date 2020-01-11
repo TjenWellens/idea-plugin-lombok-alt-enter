@@ -10,10 +10,14 @@
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
+    <depends>com.intellij.modules.java</depends>
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
+        <intentionAction>
+            <className>eu.tjenwellens.idea.plugins.lombokaltenter.ConditionalOperatorConvertor</className>
+            <category>SDK Intentions</category>
+        </intentionAction>
     </extensions>
 
 
