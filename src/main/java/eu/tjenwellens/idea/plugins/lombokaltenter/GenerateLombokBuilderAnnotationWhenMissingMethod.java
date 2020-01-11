@@ -27,6 +27,8 @@ import java.util.Optional;
 @NonNls
 public class GenerateLombokBuilderAnnotationWhenMissingMethod extends PsiElementBaseIntentionAction implements IntentionAction {
 
+  public static final String LOMBOK_BUILDER = "lombok.Builder";
+
   /**
    * If this action is applicable, returns the text to be shown in the list of
    * intention actions available.
@@ -100,6 +102,11 @@ public class GenerateLombokBuilderAnnotationWhenMissingMethod extends PsiElement
     if(builders.length > 0){
       return false;
     }
+
+    if(psiClass.getModifierList().hasAnnotation(LOMBOK_BUILDER)){
+      return false;
+    }
+
     return true;
   }
 
@@ -133,7 +140,7 @@ public class GenerateLombokBuilderAnnotationWhenMissingMethod extends PsiElement
     findRelevantClass(element)
             .map(PsiModifierListOwner::getModifierList)
             .flatMap(Optional::ofNullable)
-            .map(psiModifierList -> psiModifierList.addAnnotation("lombok.Builder"))
+            .map(psiModifierList -> psiModifierList.addAnnotation(LOMBOK_BUILDER))
             .ifPresent(javaCodeStyleManager::shortenClassReferences);
   }
 
