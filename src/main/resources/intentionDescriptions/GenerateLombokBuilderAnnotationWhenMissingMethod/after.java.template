@@ -1,0 +1,11 @@
+import lombok.Builder;
+
+public class X {
+  void f(boolean isMale) {
+    Y.builder()
+  }
+}
+
+@Builder
+class Y {
+}

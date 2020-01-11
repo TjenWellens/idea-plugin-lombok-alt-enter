@@ -18,6 +18,10 @@
             <className>eu.tjenwellens.idea.plugins.lombokaltenter.ConditionalOperatorConvertor</className>
             <category>SDK Intentions</category>
         </intentionAction>
+        <intentionAction>
+            <className>eu.tjenwellens.idea.plugins.lombokaltenter.GenerateLombokBuilderAnnotationWhenMissingMethod</className>
+            <category>SDK Intentions</category>
+        </intentionAction>
     </extensions>
 
 
