@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>org.example.idea-plugin-lombok-alt-enter</id>
-    <name>SDK: Action Sample Project</name>
+    <name>Lombok annotation generator</name>
     <vendor email="tjen.wellens@gmail.com" url="http://tjenwellens.eu">Tjen Wellens</vendor>
 
     <idea-version since-build="192"/>
