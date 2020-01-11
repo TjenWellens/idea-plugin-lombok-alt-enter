@@ -3,6 +3,8 @@
     <name>SDK: Action Sample Project</name>
     <vendor email="tjen.wellens@gmail.com" url="http://tjenwellens.eu">Tjen Wellens</vendor>
 
+    <idea-version since-build="192"/>
+    
     <description>Generates lombok builder when missing</description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
