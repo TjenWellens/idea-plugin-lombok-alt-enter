@@ -1,0 +1,58 @@
+<idea-plugin>
+    <id>org.example.idea-plugin-lombok-alt-enter</id>
+    <name>SDK: Action Sample Project</name>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+
+
+    <actions>
+        <!-- See https://www.jetbrains.org/intellij/sdk/docs/basics/action_system.html#registering-actions-in-pluginxml
+              for information about the elements and attributes used for actions and groups. -->
+        <!-- This <action> element adds a static menu item in first position of the Tools menu that shows PopupDialogAction. -->
+        <action id="eu.tjenwellens.idea.plugins.lombokaltenter.PopupDialogAction" class="eu.tjenwellens.idea.plugins.lombokaltenter.PopupDialogAction"
+                text="Pop Dialog Action" description="SDK action example" icon="ActionBasicsIcons.Sdk_default_icon">
+            <keyboard-shortcut first-keystroke="control alt A" second-keystroke="C" keymap="$default"/>
+            <mouse-shortcut keystroke="control button3 doubleClick" keymap="$default"/>
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
+        <!-- All of the following menu groups add the action PopupDialogAction to menus in different ways.
+              Note that even though these groups reuse the same action class, in each use the action ids are unique. -->
+        <!-- GroupedActions demonstrates declaring an action group using the default ActionGroup implementation provided by the
+              IntelliJ Platform framework. (Note the lack of a group "class" attribute.) GroupedActions gets inserted after PopupDialogAction
+              in the Tools menu. Because the group's implementation is default, it cannot impose enable/disable conditions. Instead it
+              must rely on the conditions imposed by the parent menu where it is inserted. It declares one action in the group. -->
+        <group id="eu.tjenwellens.idea.plugins.lombokaltenter.GroupedActions" text="Static Grouped Actions" popup="true" icon="ActionBasicsIcons.Sdk_default_icon">
+            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="eu.tjenwellens.idea.plugins.lombokaltenter.PopupDialogAction"/>
+            <action class="eu.tjenwellens.idea.plugins.lombokaltenter.PopupDialogAction" id="eu.tjenwellens.idea.plugins.lombokaltenter.GroupPopDialogAction"
+                    text="A Group Action" description="SDK static grouped action example" icon="ActionBasicsIcons.Sdk_default_icon">
+            </action>
+        </group>
+        <!-- CustomDefaultActionGroup demonstrates declaring an action group based on a ActionGroup class supplied by this plugin.
+              This group is to be inserted atop the Editor Popup Menu. It declares one action in the group. -->
+        <group id="eu.tjenwellens.idea.plugins.lombokaltenter.CustomDefaultActionGroup" class="eu.tjenwellens.idea.plugins.lombokaltenter.CustomDefaultActionGroup" popup="true"
+               text="Popup Grouped Actions" description="Custom defaultActionGroup demo" icon="ActionBasicsIcons.Sdk_default_icon">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <action class="eu.tjenwellens.idea.plugins.lombokaltenter.PopupDialogAction" id="eu.tjenwellens.idea.plugins.lombokaltenter.CustomGroupedAction"
+                    text="A Popup Action" description="SDK popup grouped action example" icon="ActionBasicsIcons.Sdk_default_icon"/>
+        </group>
+        <!-- DynamicActionGroup demonstrates declaring an action group without a static action declaration.
+              An action is added to the group programmatically in the DynamicActionGroup implementation. -->
+        <group id="eu.tjenwellens.idea.plugins.lombokaltenter.DynamicActionGroup" class="eu.tjenwellens.idea.plugins.lombokaltenter.DynamicActionGroup" popup="true"
+               text="Dynamically Grouped Actions" description="SDK dynamically grouped action example" icon="ActionBasicsIcons.Sdk_default_icon">
+            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="eu.tjenwellens.idea.plugins.lombokaltenter.GroupedActions"/>
+        </group>
+    </actions>
+</idea-plugin>
